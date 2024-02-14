@@ -1,7 +1,7 @@
 """
 This code is a possible answer to: create a spreadsheet to track students and milestone rewards. What should the rows
 and columns be?
-rows should be students and columns should be rewards.
+There is supposed to be a lot more students than rewards, so rows should be students and columns should be rewards.
 """
 
 from student_rewards_classes import Student, Reward

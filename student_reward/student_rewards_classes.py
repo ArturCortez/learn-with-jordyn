@@ -30,12 +30,13 @@ class Student:
         and adds it to the rewards_student_got list.
         :param reward: the reward to be gained by the student
         """
-        if reward in self.pending_rewards and reward not in self.rewards_student_got:
-            self.pending_rewards.remove(reward)
-            self.rewards_student_got.append(reward)
-            if self not in reward.students_who_got_reward:
-                reward.add_reward_to_student(self)
-        reward.add_reward_to_student(reward, self)
+        if reward is not None:
+            if reward in self.pending_rewards and reward not in self.rewards_student_got:
+                self.pending_rewards.remove(reward)
+                self.rewards_student_got.append(reward)
+                if self not in reward.students_who_got_reward:
+                    reward.add_reward_to_student(self)
+            reward.add_reward_to_student(self)
 
     def remove_reward(self, reward):
         """
@@ -63,13 +64,14 @@ class Student:
         requirements level of the task
         """
         level = len(self.finished_tasks)
+        print(f"Level for {self.name} is {level}")
         for task in Task.all_tasks:
-            if task not in self.finished_tasks and task not in self.open_tasks:
+            if task not in self.finished_tasks: # and task not in self.open_tasks:
                 if task.requirements <= level:
                     print(f"New Task Unlocked: \n {self.name} unlocked {task.name}")
                     self.open_tasks.append(task)
 
-    def mark_task_as_complete(self, task):
+    def mark_task_as_complete(self, task, automatic_update: bool = False):
         """
         This method marks the task as completed by this student instance.
         it appends the task to the finished task list and removes it from the open_task list.
@@ -81,8 +83,9 @@ class Student:
         print(f"{self.name} completed {task.name}")
         self.finished_tasks.append(task)
         self.open_tasks.remove(task)
-        print(f"{self.name} gained reward {task.reward.name}")
-        self.update_pending_rewards(task.reward)
+        if task.reward is not None:
+            print(f"{self.name} gained reward {task.reward.name}")
+        self.update_pending_rewards(task.reward, automatic_update)
         self.update_tasks()
 
     @classmethod
@@ -104,6 +107,9 @@ class Reward:
         self.reward_id = self.class_id_number
         self.students_who_got_reward: list = []
         Reward.all_rewards.append(self)
+
+    def __str__(self):
+        return f"Reward: {self.name}; ID: {self.reward_id}"
 
     def add_reward_to_student(self, student):
         """
@@ -137,7 +143,8 @@ class Task:
         self.task_id = self.class_id_number
         self.complete: bool = False
         self.requirements: int = 0
-        self.reward: Reward = reward
+        self.reward = reward
+        Task.all_tasks.append(self)
 
     @classmethod
     def get_all_tasks(cls):
@@ -158,7 +165,6 @@ class Task:
             if task.task_id == task_id:
                 return task
         return None  # If returns None, task not found
-
 
     def set_requirements(self, level: int):
         """

@@ -1,9 +1,14 @@
 from student_rewards_classes import Student, Reward, Task
-from table_creator import create_example_student, create_task_example, create_reward_example, create_table_dict
+from table_creator import create_student_example, create_task_example, create_reward_example, create_table_dict
 import openpyxl
 
 
 def print_worksheet(workbook):
+    """
+    this function prints the active worksheet of the workbook
+    :param workbook: the .xlsx file address
+    """
+
     wb = openpyxl.load_workbook(workbook)
     ws = wb.active
 
@@ -14,6 +19,14 @@ def print_worksheet(workbook):
 
 
 def insert_completed_task(worksheet, student_name, task_name, value):
+    """
+    Updates a completed task to the .xlsx file at the right row and column. It uses strings as indexes
+    :param worksheet: the .xlsx file address
+    :param student_name: the student.name attribute
+    :param task_name: the task.name attribute
+    :param value: the completed value
+    :return: a new .xlsx file
+    """
     wb = openpyxl.load_workbook(worksheet)
     ws = wb.active
 
@@ -34,10 +47,14 @@ def insert_completed_task(worksheet, student_name, task_name, value):
                 ws.cell(row=rowIndex, column=column_index, value=value_to_insert)
                 break
 
-    wb.save("altered_student_reward_table.xlsx")
+    wb.save("updated_student_reward_table.xlsx")
 
 
 def write_rows():
+    """
+    this function creates the table with all the students and task. It iterates through the get_all_* methods
+    building rows for students names and columns for tasks names.
+    """
     wb = openpyxl.Workbook()
     ws = wb.active
 
@@ -55,8 +72,11 @@ def write_rows():
 
 
 def main():
+    """
+    this function creates a bunch of random students and tasks
+    """
     task_generator = create_task_example()
-    student_generator = create_example_student()
+    student_generator = create_student_example()
     for i in range(10):
         student = next(student_generator)
         task = next(task_generator)
@@ -71,10 +91,17 @@ def main():
 if __name__ == "__main__":
     main()
     write_rows()
-    print_worksheet("student_reward_table.xlsx")
+    #print_worksheet("student_reward_table.xlsx")
     worksheet = "student_reward_table.xlsx"
     student_name = 'Olivia'
     task_name = 'Burpees'
     value = 'Completed'
     insert_completed_task("student_reward_table.xlsx", student_name, task_name, value)
-    print_worksheet("altered_student_reward_table.xlsx")
+
+    student_list = [student for student in Student.get_all_students()]
+    for student in student_list:
+        student_name = student.name
+        print(student_name, end=' ; ')
+        insert_completed_task("updated_student_reward_table.xlsx", student_name, 'Squats', value)
+
+    print_worksheet("updated_student_reward_table.xlsx")

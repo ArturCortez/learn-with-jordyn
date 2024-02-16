@@ -26,6 +26,12 @@ table_dict = create_table_dict()
 
 
 def list_of_rewards_to_send() -> list:
+    """
+    this function creates a list of rewards that need to be sent out.
+    I recommend you use the dictionary below because while this list only contains the name of the reward,
+    the dictionary carries the nameof the reward and name of the receiver of the reward, so you know who to send it.
+    :return:
+    """
     list_to_send = []
     for student in Student.get_all_students():
         list_to_send.append(student.pending_rewards)
@@ -63,6 +69,10 @@ def create_reward_example():
 
 
 def create_task_example():
+    """
+    this task generator uses the reward generator to attach rewards to each task.
+    :return:
+    """
     task_list = [
         "Push-ups", "Squats", "Lunges", "Planks", "Burpees",
         "Sit-ups", "Jumping Jacks", "Mountain Climbers", "Leg Raises", "High Knees",
@@ -75,7 +85,7 @@ def create_task_example():
         yield Task(task, reward)
 
 
-def create_example_student():
+def create_student_example():
     names = [
         "Alice", "Bob", "Charlie", "Emma", "Liam", "Olivia", "Noah", "Ava",
         "Ethan", "Isabella", "Mason", "Sophia", "Mia",
@@ -89,27 +99,16 @@ def create_example_student():
 if __name__ == "__main__":
 
     task_generator = create_task_example()
-    task1 = next(task_generator)
-    task1.set_requirements(0)
-    task2 = next(task_generator)
-    task2.set_requirements(1)
-    task3 = next(task_generator)
-    task3.set_requirements(1)
-    task4 = next(task_generator)
-    task4.set_requirements(2)
-    task5 = next(task_generator)
-    task5.set_requirements(3)
-
-    student_list = []
-    student_generator = create_example_student()
-
-    for i in range(5):
-        student_list.append(next(student_generator))
-
+    student_generator = create_student_example()
+    for i in range(10):
+        student = next(student_generator)
+        task = next(task_generator)
+        task.set_requirements(i)
 
     for student in Student.get_all_students():
         student.update_tasks()
 
+    task1 = Task.find_task_by_id(1)
 
     for student in Student.get_all_students():
         student.mark_task_as_complete(task1, automatic_update=True)

@@ -1,0 +1,59 @@
+import jinja2
+from dna import Dna, Home, Products, Price, Press, Contact_us
+import itertools
+
+class Zot:
+    name = ""
+    id = itertools.count()
+
+    def __init__(self, state: "State") -> None:
+        self.transition_to(state)
+        self.id = next(Zot.id)
+
+
+    def transition_to(self, state: "State"):
+        print(f"DNA: Transition to {type(state).__name__}")
+        self._state = state
+        self._state.context = self
+
+    def save_html(self, rendered_template: str, filename: str):
+        with open(filename, 'w') as file:
+            file.write(rendered_template)
+
+    def render_template(self):
+        environment = jinja2.Environment(loader=jinja2.FileSystemLoader("templates/"))
+        template = environment.get_template("ecommerce_main.html")
+        filename = self._state.filename
+        menu_list = self._state.menu_list
+        main_name = self._state.main_name
+        input_dict = {'main_name': main_name, 'menu_list': menu_list}
+        html_content = template.render(input_dict)
+
+        self.save_html(html_content, filename)
+
+    def write_method(self):
+        current_script = __file__
+        new_file = "new_file.txt"
+        with open(current_script, 'r') as file:
+            content = file.read()
+
+        with open(new_file, 'w') as file:
+            file.write(content)
+
+
+if __name__ == "__main__":
+
+    while True:
+        phase_dict = {"home": Home(), "products": Products(), "price": Price(), "press": Press(), "contact us": Contact_us()}
+        phase = input("What is the DNA template: Home, Products, Price, Press, Contact Us? ")
+
+        if phase in phase_dict.keys():
+            break
+
+    state = phase_dict.get(phase.lower())
+
+    zot1 = Zot(state)
+
+    zot1._state.actions()
+    zot1.render_template()
+    zot1.write_method()

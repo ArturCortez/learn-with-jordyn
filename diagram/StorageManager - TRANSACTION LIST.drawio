@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-03-09T19:54:30.029Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="usJfho16-BF3uatzUKfX" version="24.0.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-03-09T19:54:54.838Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="km8EJRH8xOZkaYaNhwmW" version="24.0.4" type="github">
   <diagram name="Página-1" id="hNAxjIGaJdhHwA7gnnjn">
     <mxGraphModel dx="880" dy="472" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -34,7 +34,7 @@
         <mxCell id="9Bf6Wea90JQik3r4SX6L-10" value="TRANSACTION LIST" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="340" y="200" width="420" height="310" as="geometry" />
         </mxCell>
-        <mxCell id="9Bf6Wea90JQik3r4SX6L-12" value="STAGE CHANGES" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+        <mxCell id="9Bf6Wea90JQik3r4SX6L-12" value="OPEN TRANSACTION DETAIL" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="620" y="525" width="120" height="60" as="geometry" />
         </mxCell>
       </root>

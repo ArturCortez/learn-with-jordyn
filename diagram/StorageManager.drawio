@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2024-03-09T19:47:26.780Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="NhmQZnnPNDnZZlHreENU" version="24.0.4" type="github">
+<mxfile host="app.diagrams.net" modified="2024-03-09T19:51:53.007Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/122.0.0.0 Safari/537.36" etag="ecoH2a14my-TVfnA6itq" version="24.0.4" type="github">
   <diagram name="Página-1" id="hNAxjIGaJdhHwA7gnnjn">
     <mxGraphModel dx="880" dy="472" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -26,28 +26,22 @@
           <mxGeometry x="300" y="20" width="500" height="600" as="geometry" />
         </mxCell>
         <mxCell id="9Bf6Wea90JQik3r4SX6L-8" value="DASHBOARD" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="350" y="60" width="410" height="60" as="geometry" />
+          <mxGeometry x="320" y="60" width="470" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="9Bf6Wea90JQik3r4SX6L-9" value="USERNAME" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="340" y="200" width="430" height="60" as="geometry" />
+        <mxCell id="9Bf6Wea90JQik3r4SX6L-9" value="SEARCH ITEMS" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="140" width="430" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="9Bf6Wea90JQik3r4SX6L-10" value="PASSWORD" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="340" y="290" width="430" height="60" as="geometry" />
+        <mxCell id="9Bf6Wea90JQik3r4SX6L-10" value="WORKING ITEM NAME" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="200" width="280" height="150" as="geometry" />
         </mxCell>
-        <mxCell id="9Bf6Wea90JQik3r4SX6L-11" value="FORGOT YOUR PASSWORD?" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
-          <mxGeometry x="390" y="525" width="120" height="60" as="geometry" />
-        </mxCell>
-        <mxCell id="9Bf6Wea90JQik3r4SX6L-12" value="REGISTER HERE." style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+        <mxCell id="9Bf6Wea90JQik3r4SX6L-12" value="STAGE CHANGES" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="620" y="525" width="120" height="60" as="geometry" />
         </mxCell>
-        <mxCell id="9Bf6Wea90JQik3r4SX6L-13" value="GOOGLE" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="360" y="400" width="80" height="80" as="geometry" />
+        <mxCell id="9Bf6Wea90JQik3r4SX6L-16" value="QUANTITY (POSITIVE OR NEGATIVE)" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="650" y="200" width="120" height="140" as="geometry" />
         </mxCell>
-        <mxCell id="9Bf6Wea90JQik3r4SX6L-14" value="APPLE" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="515" y="400" width="80" height="80" as="geometry" />
-        </mxCell>
-        <mxCell id="9Bf6Wea90JQik3r4SX6L-15" value="GITHUB" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
-          <mxGeometry x="690" y="400" width="80" height="80" as="geometry" />
+        <mxCell id="9Bf6Wea90JQik3r4SX6L-17" value="WORKING ITEM STORAGE UNIT" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="340" y="400" width="410" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
